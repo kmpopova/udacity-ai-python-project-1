@@ -52,7 +52,7 @@ def get_pet_labels(image_dir):
         labels_list.append(label)
 
     for idx in range(0, len(filename_list)):
-        if filename_list[idx] not in results_dic:
+        if filename_list[idx] not in results_dic and not filename_list[idx].startswith("."):
             results_dic[filename_list[idx]] = [labels_list[idx]]
 
     return results_dic
