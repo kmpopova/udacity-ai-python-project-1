@@ -1,0 +1,100 @@
+OVERALL PROJECT OBJECTIVES
+
+TASK 1: Correctly identify which pet images are of dogs (even if breed is misclassified)
+and which pet images aren't of dogs.
+
+TASK 2: Correctly classify the breed of dog, for the images that are of dogs.
+
+TASK 3: Determine which CNN model architecture (ResNet, AlexNet, or VGG),
+"best" achieve the objectives 1 and 2.
+
+ANSWER to TASKS 1, 2, 3:
+
+Similar to the results shown in the Results Table in Section 22. Final results
+of the Project, my code gave the output: 40 total images, 30 dog images and
+10 not-a-dog images in folder pet_images/.
+
+ResNet correctly identified dogs in dog images in 100% of the cases,
+correctly assigned the dog breed in 90% of the cases and correctly identified
+not-a-dog images in 90% of the cases. One image of a cat was misclassified as
+a dog, and three dog breeds were misclassified (beagle, golden retriever and
+great pyrenees).
+
+AlexNet correctly identified dogs in dog images in 100% of the cases,
+correctly assigned the dog breed in 80% of the cases and correctly identified
+not-a-dog images in 100% of the cases. Six dog breeds were misclassified
+(2x beagle, 1x boston retriever, 2x golden retriever and 1x great pyrenees).
+
+VGG correctly identified dogs in dog images in 100% of the cases,
+correctly assigned the dog breed in 93.3% of the cases and correctly identified
+not-a-dog images in 100% of the cases. Only two dog breeds were misclassified
+(beagle and great pyrenees).
+
+Based on the above, (1) VGG apears superior to both ResNet and AlexNet in
+the precision of its classification. However, AlexNet managed to correctly
+determine which images were of dogs and which not in all cases, even though it
+had higher error when classifying the dog breeds.
+
+(2) All three models appear
+to have difficulties classifying the same breeds - beagle and great pyrenees
+ended up misclassified by all three models, and golden retriever breed was
+misclassified by 2 of 3 models. As a human not particularly familiar with dog
+breeds, I find these misclassifications somewhat justified: beagle and walker hound
+look quite similar to my eye (that was the mistake all classifiers
+also made). Great pyrenees and kuvasz (another mistake common between all
+classifiers) do not seem that similar to me, but a check of Google searches
+"kuvasz vs great pyrenees" shows a significant number of articles explaining
+the visual differences between these breeds,
+so it's likely that many humans have the same trouble here as do the machines :)
+
+TASK 4: Consider the time resources required to best achieve objectives 1 and 2,
+and determine if an alternative solution would have given a "good enough" result,
+given the amount of time each of the algorithms take to run.
+
+ANSWER to TASK 4:
+
+Code using ResNet took 3 seconds to run.
+Code using AlexNet took 2 seconds to run.
+Code using VGG took 15 seconds to run (about 5-8 times longer than the other
+two models!) but gave the most precise classification among all three.
+
+Given that computing resources can often be the limiting factor for large datasets,
+I would opt-in for ResNet in cases where we seek "acceptable" quality of both "dog vs
+other animals" and "breed identification" tasks. In cases, where it might be
+more important to sort out non-dogs, sacrificing some quality of breed classification,
+I would opt-in for AlexNet.
+
+UPLOADED IMAGE CLASSIFICATION
+
+1. Did the three model architectures classify the breed of dog in Dog_01.jpg
+to be the same breed?
+
+ANSWER: Yes. It was an image of a german shepherd puppy, which I picked together
+with an image of a bear (my Animal_01.jpg image), wondering if the classifiers
+would misclassify either of the two. To me, german shepherd puppies look a bit
+like little bears but none of the classifiers was as fooled :)
+
+2. Did each of the three model architectures classify the breed of dog in Dog_01.jpg
+to be the same breed of dog as that model architecture classified Dog_02.jpg?
+
+ANSWER: Yes.
+
+3. Did the three model architectures correctly classify Animal_Name_01.jpg and
+Object_Name_01.jpg to not be dogs?
+
+ANSWER: Yes. My object image was of a plush egg-shaped toy with painted face
+and arms and I was curious to see if this would confuse the classifiers.
+Nevertheless, the object was not only correctly assigned to be not-a-dog
+(I expected that) but was also not classified as a real animal at all. All three
+models suggested that the image is of a "piggy bank" - a result I find quite
+interesting, given that the machine really picked the second best option for
+"an animal-like object which is not actually an animal".
+
+4. Based upon your answers for questions 1. - 3. above, select the model
+architecture that you feel did the best at classifying the four uploaded images.
+
+ANSWER: In this particular task, all models performed identically well, except
+VGG took longer to run - 1 sec vs less than a sec for the other two. Therefore
+I can't pick "the best" model based on these data alone. In fact, if I only
+look at the data for this small sample and ignore the run with 40 images,
+VGG appears to be the WORST of all - which we know is not the case at all.
